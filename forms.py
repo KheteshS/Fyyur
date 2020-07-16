@@ -6,7 +6,7 @@ from wtforms.widgets import TextArea
 import re
 
 
-genres_choices = [
+state_choices = [
             ('AL', 'AL'),
             ('AK', 'AK'),
             ('AZ', 'AZ'),
@@ -60,7 +60,7 @@ genres_choices = [
             ('WY', 'WY'),
         ]
 
-state_choices = [
+genres_choices = [
             ('Alternative', 'Alternative'),
             ('Blues', 'Blues'),
             ('Classical', 'Classical'),
@@ -127,7 +127,7 @@ class VenueForm(Form):
     )
     genres = SelectMultipleField(
         # TODO implement enum restriction
-        'genres', validators=[DataRequired(),validate_genres],
+        'genres', validators=[DataRequired()],
         choices=genres_choices
     )
     facebook_link = StringField(
@@ -167,7 +167,7 @@ class ArtistForm(Form):
     )
     genres = SelectMultipleField(
         # TODO implement enum restriction
-        'genres', validators=[DataRequired(),validate_genres],
+        'genres', validators=[DataRequired()],
         choices=genres_choices
     )
     facebook_link = StringField(
